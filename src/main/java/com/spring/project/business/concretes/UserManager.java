@@ -19,7 +19,6 @@ public class UserManager implements UserService {
         if(userDao.existsByEmail(user.getEmail())) {
             return new ErrorResult("Email kullanılmakta");
         }
-
         userDao.save(user);
         return new SuccessDataResult<>("Kullanıcı Eklendi");
     }

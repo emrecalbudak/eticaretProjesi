@@ -19,14 +19,20 @@ public class User {
     @Column(name="id")
     private int id;
 
+    @Column(name="username")
+    @NotNull
+    @NotBlank
+    private String username;
+
+    @Column(name="password")
+    @NotBlank
+    @NotNull
+    private String password;
+
     @Column(name="email")
     @Email
     @NotBlank
     @NotNull
     private String email;
 
-    @Column(name="password")
-    @NotBlank
-    @NotNull
-    private String password;
 }
