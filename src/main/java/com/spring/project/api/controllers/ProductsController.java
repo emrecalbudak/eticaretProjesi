@@ -15,13 +15,12 @@ import java.util.List;
 @CrossOrigin
 public class ProductsController {
 
-    private ProductService productService;
+    private  ProductService productService;
     @Autowired
     public ProductsController(ProductService productService) {
         super();
         this.productService = productService;
     }
-
     @GetMapping("/getall")
     public DataResult<List<Product>> getAll(){
         return this.productService.getAll();
@@ -60,5 +59,8 @@ public class ProductsController {
     public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
         return this.productService.getProductWithCategoryDetails();
     }
-
+    @GetMapping("/category/{categoryId}")
+    public List<Product> getProductsByCategory(@PathVariable int categoryId) {
+        return this.productService.getProductsByCategory(categoryId);
+    }
 }

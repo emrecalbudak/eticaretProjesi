@@ -19,26 +19,7 @@ import java.util.Map;
 @RequestMapping(value = "/api/users")
 public class UsersController {
     private UserService userService;
-    /*@Autowired
-    public UsersController(UserService userService) {
-        super();
-        this.userService = userService;
-    }
-    @PostMapping(value = "/add")
-    public ResponseEntity<?> add(@Valid @RequestBody User user){ // ? = işlem sonucuna göre döndür.
-        return ResponseEntity.ok(this.userService.add(user));
-    }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class) // validation hataları için kullanılacak
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorDataResult<Object> handleValidationException(MethodArgumentNotValidException exceptions){
-        Map<String,String> validationErrors = new HashMap<String, String>();
-        for(FieldError fieldError : exceptions.getBindingResult().getFieldErrors()){
-            validationErrors.put(fieldError.getField(),fieldError.getDefaultMessage());
-        }
-        ErrorDataResult<Object> errors = new ErrorDataResult<Object>(validationErrors,"Doğrulama hataları");
-        return errors;
-    }*/
     @Autowired
     public UsersController(UserService userService) {
         super();

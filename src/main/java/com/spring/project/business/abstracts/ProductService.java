@@ -4,7 +4,6 @@ import com.spring.project.core.utilities.results.DataResult;
 import com.spring.project.core.utilities.results.Result;
 import com.spring.project.entities.concretes.*;
 import com.spring.project.entities.dtos.ProductWithCategoryDto;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -13,7 +12,6 @@ public interface ProductService {
     DataResult<List<Product>> getAllSorted();
     DataResult<List<Product>> getAll(int pageNo, int pageSize);
     Result add(Product product);
-
     DataResult<Product> getByProductName(String productName); // getBy : WHERE komutu döndürüyor. WHERE productName = "..." şeklinde.
     DataResult<Product> getByProductNameAndCategory(String productName, int categoryId);
     DataResult<List<Product>> getByProductNameOrCategory(String productName, int categoryId);
@@ -23,5 +21,6 @@ public interface ProductService {
     DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
     DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 
+    List<Product> getProductsByCategory(int categoryId);
 
 }

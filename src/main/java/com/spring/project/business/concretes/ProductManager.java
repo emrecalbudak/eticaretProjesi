@@ -13,7 +13,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -26,7 +25,6 @@ public class ProductManager implements ProductService {
         super();
         this.productDao = productDao;
     }
-
     @Override
     public DataResult<List<Product>> getAll() {
         return new SuccessDataResult<List<Product>>
@@ -49,6 +47,11 @@ public class ProductManager implements ProductService {
     public Result add(Product product) {
         this.productDao.save(product);
         return new SuccessResult("Ürün Eklendi");
+    }
+
+    @Override
+    public List<Product> getProductsByCategory(int categoryId) {
+        return productDao.findByCategoryId(categoryId); // Belirli kategoriye ait ürünleri getir
     }
 
     @Override
